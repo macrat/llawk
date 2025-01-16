@@ -1,0 +1,19 @@
+=== Instruction ===
+{{ .Instruct }}
+
+=== Output format ===
+{{ .Format }}
+
+{{- if .Schema }}
+
+=== Output schema ===
+{{ .Schema }}{{ end }}
+
+=== Output file name ===
+{{ .OutputName }}
+
+=== Input file name ===
+{{ .InputName }}
+
+=== Input content ===
+{{.Input}}
