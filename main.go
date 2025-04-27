@@ -93,9 +93,13 @@ var models = []struct {
 	Dialer  LLMDialer
 	Matcher func(string) bool
 }{
-	{"gpt-4o", OpenAIDialer{Stream: true}, nil},
-	{"gpt-4o-mini", OpenAIDialer{Stream: true}, nil},
-	{"o1", OpenAIDialer{Stream: false}, nil},
+	{"gpt-4o", OpenAIDialer{}, nil},
+	{"gpt-4o-mini", OpenAIDialer{}, nil},
+	{"gpt-4.1", OpenAIDialer{}, nil},
+	{"gpt-4.1-mini", OpenAIDialer{}, nil},
+	{"gpt-4.1-nano", OpenAIDialer{}, nil},
+	{"o3", OpenAIDialer{}, nil},
+	{"o4-mini", OpenAIDialer{}, nil},
 	{"gemini-1.5-flash", GoogleDialer{}, nil},
 	{"gemini-1.5-pro", GoogleDialer{}, nil},
 	{"gemini-2.0-flash-exp", GoogleDialer{}, nil},
