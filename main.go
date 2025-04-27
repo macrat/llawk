@@ -103,6 +103,8 @@ var models = []struct {
 	{"gemini-2.0-flash", GoogleDialer{}, nil},
 	{"gemini-2.0-flash-lite", GoogleDialer{}, nil},
 	{"gemini-1.5-pro", GoogleDialer{}, nil},
+	{"claude-3.7-sonnet", AnthropicDialer{"claude-3-7-sonnet-latest", 8192}, nil},
+	{"claude-3.5-haiku", AnthropicDialer{"claude-3-5-haiku-latest", 8192}, nil},
 	{"ollama:(model name)", OllamaDialer{}, func(s string) bool { return strings.HasPrefix(s, "ollama:") }},
 }
 
@@ -142,6 +144,8 @@ func main() {
 		fmt.Fprintln(os.Stderr, "    OPENAI_ORG_ID    Organization ID.")
 		fmt.Fprintln(os.Stderr, "  for Google models:")
 		fmt.Fprintln(os.Stderr, "    GEMINI_API_KEY   API key.")
+		fmt.Fprintln(os.Stderr, "  for Anthropic models:")
+		fmt.Fprintln(os.Stderr, "    ANTHROPIC_API_KEY   API key.")
 		fmt.Fprintln(os.Stderr, "  for Ollama models:")
 		fmt.Fprintln(os.Stderr, "    OLLAMA_HOST	  Hostname of the Ollama API.")
 		fmt.Fprintln(os.Stderr, "")
