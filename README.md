@@ -38,6 +38,9 @@ $ ls -l | llawk -f json "Extract file names and sizes"
     - gemini-2.0-flash
     - gemini-2.0-flash-lite
     - gemini-1.5-pro
+- Anthropic
+    - claude-3.7-sonnet
+    - claude-3.5-haiku
 - Ollama
     - any models which supports chat completion
 
@@ -79,7 +82,7 @@ $ echo hello | llawk -f '{"type":"object","properties":{"japanese":{"type":"stri
 You can specify the model using the `-m` option or the `LLAWK_MODEL` environment variable:
 
 ```shell
-$ echo hello | llawk -m gemini-1.5-flash "Translate to Japanese"
+$ echo hello | llawk -m gemini-2.0-flash "Translate to Japanese"
 ```
 
 To see the list of supported models, run `llawk -m list`.
@@ -103,7 +106,17 @@ Please set `GEMINI_API_KEY` environment variable before using Google models.
 
 ```shell
 $ export GEMINI_API_KEY=xxxxxx
-$ echo hello | llawk -m gemini-1.5-flash "Translate to Japanese"
+$ echo hello | llawk -m gemini-2.0-flash "Translate to Japanese"
+```
+
+### Anthropic models
+
+Anthropic models require an API key to access.
+Please set `ANTHROPIC_API_KEY` environment variable before using Anthropic models.
+
+```shell
+$ export ANTHROPIC_API_KEY=xxxxxx
+$ echo hello | llawk -m claude-3.5-haiku "Translate to Japanese"
 ```
 
 ### Ollama models
