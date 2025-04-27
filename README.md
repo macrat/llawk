@@ -27,13 +27,17 @@ $ ls -l | llawk -f json "Extract file names and sizes"
 ## Supported LLMs
 
 - OpenAI
+    - GPT-4.1
+    - GPT-4.1-mini
+    - GPT-4.1-nano
     - GPT-4o
     - GPT-4o-mini
-    - o1
+    - o3
+    - o4-mini
 - Google
-    - gemini-1.5-flash
+    - gemini-2.0-flash
+    - gemini-2.0-flash-lite
     - gemini-1.5-pro
-    - gemini-2.0-flash-exp
 - Ollama
     - any models which supports chat completion
 

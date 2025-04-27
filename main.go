@@ -93,16 +93,16 @@ var models = []struct {
 	Dialer  LLMDialer
 	Matcher func(string) bool
 }{
-	{"gpt-4o", OpenAIDialer{}, nil},
-	{"gpt-4o-mini", OpenAIDialer{}, nil},
 	{"gpt-4.1", OpenAIDialer{}, nil},
 	{"gpt-4.1-mini", OpenAIDialer{}, nil},
 	{"gpt-4.1-nano", OpenAIDialer{}, nil},
+	{"gpt-4o", OpenAIDialer{}, nil},
+	{"gpt-4o-mini", OpenAIDialer{}, nil},
 	{"o3", OpenAIDialer{}, nil},
 	{"o4-mini", OpenAIDialer{}, nil},
-	{"gemini-1.5-flash", GoogleDialer{}, nil},
+	{"gemini-2.0-flash", GoogleDialer{}, nil},
+	{"gemini-2.0-flash-lite", GoogleDialer{}, nil},
 	{"gemini-1.5-pro", GoogleDialer{}, nil},
-	{"gemini-2.0-flash-exp", GoogleDialer{}, nil},
 	{"ollama:(model name)", OllamaDialer{}, func(s string) bool { return strings.HasPrefix(s, "ollama:") }},
 }
 
