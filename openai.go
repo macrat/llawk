@@ -59,6 +59,16 @@ func (m *OpenAILLM) Invoke(ctx context.Context, w io.Writer, r *Request) error {
 		req.Temperature = openai.Float(0.0)
 	}
 
+	if m.Model != "o4-mini" && m.Model != "o3" && m.Model != "gpt-4.1-nano" {
+		req.Tools = []responses.ToolUnionParam{
+			{
+				OfWebSearch: &responses.WebSearchToolParam{
+					Type: "web_search_preview",
+				},
+			},
+		}
+	}
+
 	stream := m.Client.Responses.NewStreaming(ctx, req)
 	defer stream.Close()
 
