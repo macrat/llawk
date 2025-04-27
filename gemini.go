@@ -27,6 +27,14 @@ func (m *GoogleLLM) Invoke(ctx context.Context, w io.Writer, r *Request) error {
 	temp := float32(0.0)
 	model.Temperature = &temp
 
+	if m.Model != "gemini-2.0-flash-lite" {
+		model.Tools = []*genai.Tool{
+			&genai.Tool{
+				CodeExecution: &genai.CodeExecution{},
+			},
+		}
+	}
+
 	switch r.Format {
 	case "plain text":
 		model.ResponseMIMEType = "text/plain"
@@ -57,7 +65,9 @@ func (m *GoogleLLM) Invoke(ctx context.Context, w io.Writer, r *Request) error {
 		cand := resp.Candidates[0]
 		if cand.Content != nil {
 			for _, part := range cand.Content.Parts {
-				fmt.Fprint(w, part)
+				if p, ok := part.(genai.Text); ok {
+					fmt.Fprint(w, p)
+				}
 			}
 		}
 	}
